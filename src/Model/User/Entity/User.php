@@ -56,7 +56,7 @@ class User implements AggregateRoot
         length: 5,
         nullable: true,
     )]
-    private string $code;
+    private ?string $code = null;
 
     #[Column(
         type: "string",
@@ -111,7 +111,7 @@ class User implements AggregateRoot
         return $this->name;
     }
 
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->code;
     }

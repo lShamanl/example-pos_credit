@@ -35,7 +35,7 @@ class Handler
         );
 
         $this->userRepository->add($user);
-        $this->flusher->flush($user);
+        $this->flusher->flush();
         return $user;
     }
 }

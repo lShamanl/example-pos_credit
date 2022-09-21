@@ -13,7 +13,7 @@ class CommonOutputContract
     public string $createdAt;
     public string $updatedAt;
     public string $name;
-    public string $code;
+    public ?string $code;
     public string $phone;
 
     public static function create(User $user): self

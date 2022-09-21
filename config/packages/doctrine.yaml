@@ -3,7 +3,7 @@ doctrine:
         url: '%env(resolve:DATABASE_URL)%'
 
         types:
-            user_id: 'App\Model\Sms\Sms\User\Entity\Type\IdType'
+            user_id: 'App\Model\User\Entity\Type\IdType'
         # IMPORTANT: You MUST configure your server version,
         # either here or in the DATABASE_URL env var (see .env file)
         #server_version: '13'

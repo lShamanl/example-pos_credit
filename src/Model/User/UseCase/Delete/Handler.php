@@ -21,7 +21,7 @@ class Handler
         $user = $this->userRepository->getById($command->id);
 
         $this->userRepository->remove($user);
-        $this->flusher->flush($user);
+        $this->flusher->flush();
         return $user;
     }
 }

@@ -8,4 +8,3 @@ nelmio_api_doc:
         default:
             path_patterns:
                 - ^/users
-

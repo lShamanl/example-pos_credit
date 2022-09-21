@@ -10,7 +10,7 @@
         "doctrine/doctrine-bundle": "^2.6",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.12",
-        "guzzlehttp/guzzle": "^7.4",
+        "guzzlehttp/guzzle": "^7.5",
         "intellect-web-development/symfony-presentation-bundle": "0.0.*",
         "nelmio/api-doc-bundle": "^4.9",
         "symfony/asset": "6.0.*",

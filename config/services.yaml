@@ -25,6 +25,19 @@ services:
         resource: '../src/Http/'
         tags: [ 'controller.service_arguments' ]
 
+    App\Model\Flusher: ~
+
+    App\ExceptionSubscriber:
+        public: true
+        arguments:
+            $env: '%env(APP_ENV)%'
+            $debug: '%env(LOCAL_TEST)%'
+
+    App\Model\User\UseCase\SendCode\CodeSender:
+        arguments:
+            $host: '%env(SMS_HOST)%'
+            $apiToken: '%env(API_TOKEN)%'
+
     GuzzleHttp\ClientInterface:
         class: GuzzleHttp\Client
 

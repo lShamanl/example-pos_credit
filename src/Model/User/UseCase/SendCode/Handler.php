@@ -25,9 +25,12 @@ class Handler
         $user = $this->userRepository->getById($command->id);
         $code = $user->generateNewCode();
         $user->saveCode($code);
-        $this->codeSender->send($code);
+        $this->codeSender->send(
+            $code,
+            $user->getPhone()
+        );
 
-        $this->flusher->flush($user);
+        $this->flusher->flush();
         return $user;
     }
 }
