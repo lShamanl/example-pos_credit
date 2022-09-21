@@ -280,6 +280,9 @@
     "symfony/process": {
         "version": "v6.0.8"
     },
+    "symfony/property-access": {
+        "version": "v6.0.11"
+    },
     "symfony/property-info": {
         "version": "v6.0.11"
     },

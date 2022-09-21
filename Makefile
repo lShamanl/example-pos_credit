@@ -1,9 +1,7 @@
 up: docker-up
-first-init: docker-down-clear docker-pull docker-build docker-up first-init-app
 init: docker-down-clear docker-pull docker-build docker-up init-app
 before-deploy: php-lint php-cs php-stan # test
-init-app: env-init composer-install database-create-test migrations-up fixtures
-first-init-app: env-init composer-install database-create-test # make-migration migrations-up fixtures
+init-app: env-init composer-install database-create-test migrations-up
 recreate-database: database-drop database-create database-create-test
 
 cache-clear:

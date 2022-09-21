@@ -28,5 +28,8 @@ services:
     GuzzleHttp\ClientInterface:
         class: GuzzleHttp\Client
 
+    Symfony\Component\Serializer\SerializerInterface:
+        factory: [ 'App\Container\SerializerFactory', 'create' ]
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

@@ -1,6 +1,6 @@
 # Instruction
-## First init:
+## First start app:
 Для первого запуска необходимо выполнить команду:
 ```shell
-make first-init
+make init
 ```
