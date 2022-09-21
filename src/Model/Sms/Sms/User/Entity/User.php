@@ -14,17 +14,11 @@ use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\Table;
 
-/**
-* У пользователя должно быть поле "phone". Пользователям нужно уметь отправлять смс с
-* одноразовым паролем, который также должен будет храниться в сущности юзера и по
-* запросу "отправь код" должно перегенерировать его, и сохранить.
-*/
 #[Table(name: "sms_users")]
 #[Entity(repositoryClass: UserRepository::class)]
 class User implements AggregateRoot
 {
     use EventsTrait;
-
 
     /** ID entity property */
     #[Id]
@@ -70,13 +64,13 @@ class User implements AggregateRoot
         DateTimeImmutable $createdAt,
         DateTimeImmutable $updatedAt,
         string $name,
-        ?string $code,
+        string $phone,
         UserId $id,
     ) {
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
         $this->name = $name;
-        $this->code = $code;
+        $this->phone = $phone;
         $this->id = $id;
     }
 

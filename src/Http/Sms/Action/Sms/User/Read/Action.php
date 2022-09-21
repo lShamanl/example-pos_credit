@@ -20,7 +20,7 @@ use Symfony\PresentationBundle\Service\QueryBus\Aggregate\Query;
 class Action
 {
     /**
-    * @OA\Tag(name="Sms.Sms.User")
+    * @OA\Tag(name="User")
     * @OA\Response(
     *     response=200,
     *     description="Read query for User",
@@ -87,4 +87,3 @@ class Action
         );
     }
 }
-

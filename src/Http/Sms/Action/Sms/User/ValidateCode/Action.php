@@ -17,10 +17,11 @@ use Symfony\PresentationBundle\Service\Presenter;
 use Symfony\PresentationBundle\Service\QueryBus\Aggregate\Bus;
 use Symfony\PresentationBundle\Service\QueryBus\Aggregate\Query;
 
+//todo: поправить везде тэги
 class Action
 {
     /**
-    * @OA\Tag(name="Sms.Sms.User")
+    * @OA\Tag(name="User")
     * @OA\Response(
     *     response=200,
     *     description="Принимает от пользователя код, проверяет, совпадает ли он, и возвращает
@@ -89,4 +90,3 @@ class Action
         );
     }
 }
-

@@ -27,4 +27,3 @@ class QueryParams
     */
     public Filters $filters;
 }
-

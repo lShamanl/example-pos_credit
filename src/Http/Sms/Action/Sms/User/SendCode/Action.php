@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Sms\Action\Sms\User\Create;
+namespace App\Http\Sms\Action\Sms\User\SendCode;
 
 use App\Http\Sms\Contract\Sms\User\Entity\CommonOutputContract;
-use App\Model\Sms\Sms\User\UseCase\Create\Handler;
 use Nelmio\ApiDocBundle\Annotation\Model;
 use Nelmio\ApiDocBundle\Annotation\Security;
 use OpenApi\Annotations as OA;
@@ -31,7 +30,7 @@ class Action
     * )
     * @OA\Response(
     *     response=200,
-    *     description="Create command for User",
+    *     description="Send code",
     *     @OA\JsonContent(
     *          allOf={
     *              @OA\Schema(ref=@Model(type=ApiFormatter::class)),
@@ -67,21 +66,20 @@ class Action
     * @Security(name="Bearer")
     */
     #[Route(
-        path: "/users/create.{_format}",
-        name: "users.create",
+        path: "/users/sendCode.{_format}",
+        name: "users.sendCode",
         defaults: ["_format" => "json"],
         methods: ["POST"],
     )]
     public function action(
         OutputFormat $outputFormat,
         Presenter $presenter,
-        InputContract $contract,
-        Handler $handler,
+        InputContract $contract
     ): Response {
         $user = $handler->handle(
             $contract->createCommand()
         );
-
+        //todo: реализовать action
         return $presenter->present(
             data: ApiFormatter::prepare(
                 data: CommonOutputContract::create($user),

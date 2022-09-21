@@ -18,7 +18,7 @@ use Symfony\PresentationBundle\Service\Presenter;
 class Action
 {
     /**
-    * @OA\Tag(name="Sms.Sms.User")
+    * @OA\Tag(name="User")
     * @OA\Post(
     *     @OA\RequestBody(
     *         @OA\MediaType(
@@ -75,11 +75,12 @@ class Action
     public function action(
         OutputFormat $outputFormat,
         Presenter $presenter,
+        InputContract $contract,
     ): Response {
         $user = $handler->handle(
             $contract->createCommand()
         );
-
+        //todo: реализовать action
         return $presenter->present(
             data: ApiFormatter::prepare(
                 data: CommonOutputContract::create($user),
@@ -89,4 +90,3 @@ class Action
         );
     }
 }
-

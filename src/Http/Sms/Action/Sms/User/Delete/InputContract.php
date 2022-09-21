@@ -10,4 +10,3 @@ class InputContract implements InputContractInterface
 {
     public string $id;
 }
-

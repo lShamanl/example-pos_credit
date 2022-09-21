@@ -36,5 +36,10 @@ class UserRepository extends ServiceEntityRepository
         /** @var User $user */
         return $user;
     }
+
+    public function phoneIsBusy(string $phone): bool
+    {
+        return $this->findOneBy(['phone' => $phone]) !== null;
+    }
 }
 

@@ -22,7 +22,7 @@ use Symfony\PresentationBundle\Service\QueryBus\Search\Query;
 class Action
 {
     /**
-    * @OA\Tag(name="Sms.Sms.User")
+    * @OA\Tag(name="User")
     * @OA\Get(
     *     @OA\Parameter(
     *          name="searchQuery",
@@ -112,4 +112,3 @@ class Action
         );
     }
 }
-
