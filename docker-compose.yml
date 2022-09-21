@@ -1,0 +1,51 @@
+version: "3.7"
+
+networks:
+  internal-network:
+
+services:
+  nginx:
+    build:
+      context: docker
+      dockerfile: development/nginx/Dockerfile
+    volumes:
+      - ./:/app
+    ports:
+      - "8079:80"
+    networks:
+      - internal-network
+
+  app-php-fpm:
+    build:
+      context: docker
+      dockerfile: development/php-fpm/Dockerfile
+    volumes:
+      - ./:/app
+    networks:
+      - internal-network
+
+  app-php-cli:
+    build:
+      context: docker
+      dockerfile: development/php-cli/Dockerfile
+    volumes:
+      - ./:/app
+    networks:
+      - internal-network
+
+  app-postgres-db:
+    volumes:
+      - db:/var/lib/postgresql/data
+    image: postgres:13-alpine
+    ports:
+      - "54323:5432"
+    restart: always
+    environment:
+      POSTGRES_DB: application-db
+      POSTGRES_USER: default
+      POSTGRES_PASSWORD: secret
+    networks:
+      - internal-network
+
+volumes:
+  db:
