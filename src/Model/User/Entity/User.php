@@ -16,7 +16,7 @@ use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\PreUpdate;
 use Doctrine\ORM\Mapping\Table;
 
-#[Table(name: "sms_users")]
+#[Table(name: "users")]
 #[Entity(repositoryClass: UserRepository::class)]
 #[HasLifecycleCallbacks]
 class User implements AggregateRoot
