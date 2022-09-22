@@ -20,7 +20,7 @@ class Handler
     ) {
     }
 
-    public function handle(Command $command): User
+    public function handle(Command $command): void
     {
         $user = $this->userRepository->getById($command->id);
         $code = $user->generateNewCode();
@@ -31,6 +31,5 @@ class Handler
         );
 
         $this->flusher->flush();
-        return $user;
     }
 }

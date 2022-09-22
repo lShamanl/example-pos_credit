@@ -85,10 +85,10 @@ class User implements AggregateRoot
 
     public function edit(
         string $name,
-        ?string $code,
+        ?string $phone,
     ): void {
         $this->name = $name;
-        $this->code = $code;
+        $this->phone = $phone;
     }
 
     public function getId(): UserId

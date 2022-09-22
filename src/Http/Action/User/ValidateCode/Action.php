@@ -32,10 +32,6 @@ class Action
     *             @OA\Schema(
     *                 type="object",
     *                 @OA\Property(
-    *                     property="data",
-    *                     ref=@Model(type=CommonOutputContract::class)
-    *                 ),
-    *                 @OA\Property(
     *                     property="status",
     *                     example="200"
     *                 )
@@ -81,14 +77,12 @@ class Action
 
         /** @var User $user */
         $user = $bus->query($query);
-
-        if ($user->getCode() === $code) {
+        if ($user->getCode() !== $code) {
             throw new DomainException('Invalid code');
         }
 
         return $presenter->present(
             data: ApiFormatter::prepare(
-                data: CommonOutputContract::create($user),
                 messages: ['Code is valid']
             ),
             outputFormat: $outputFormat

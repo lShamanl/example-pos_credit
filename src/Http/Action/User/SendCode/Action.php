@@ -37,10 +37,6 @@ class Action
     *              @OA\Schema(ref=@Model(type=ApiFormatter::class)),
     *              @OA\Schema(type="object",
     *                  @OA\Property(
-    *                      property="data",
-    *                      ref=@Model(type=CommonOutputContract::class)
-    *                  ),
-    *                  @OA\Property(
     *                      property="status",
     *                      example="200"
     *                 )
@@ -78,13 +74,12 @@ class Action
         InputContract $contract,
         Handler $handler
     ): Response {
-        $user = $handler->handle(
+        $handler->handle(
             $contract->createCommand()
         );
 
         return $presenter->present(
             data: ApiFormatter::prepare(
-                data: CommonOutputContract::create($user),
                 messages: ['Code sent']
             ),
             outputFormat: $outputFormat
